@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<BorderPane fx:id="mainPane"  stylesheets="@../CSS/style.css" fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <GridPane vgap="20">
+            <MenuBar GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="1000"  fx:id="menuBar">
+                <menus>
+                    <Menu text="File">
+                        <items>
+                            <MenuItem onAction="#onNewMenu" text="New"/>
+                            <MenuItem onAction="#onOpenMenu" text="Open"/>
+                            <MenuItem onAction="#onSaveMenu" text="Save"/>
+                            <MenuItem onAction="#onSaveAsMenu" text="Save As"/>
+                            <SeparatorMenuItem  />
+                            <MenuItem onAction="#onExit" text="Exit"/>
+                        </items>
+                    </Menu>
+
+                    <Menu text="Help">
+                        <items>
+                            <MenuItem text="Search" disable="true"/>
+                            <MenuItem text="Online Manual" visible="false"/>
+                            <SeparatorMenuItem />
+                            <MenuItem onAction="#showDialog" text="About" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1"  hgap="700">
+                <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <!--      First row for run and stop and other stuff          -->
+                    <Button text="Run" fx:id="runButton">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20"  >
+                                <Image url="@run.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button fx:id="stopButton" text="Stop">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20"  >
+                                <Image url="@stop.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button text="Debug Mode" fx:id="debugMode"/>
+                    <!--       End      -->
+                </HBox>
+
+                <GridPane hgap="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Text text="I/O:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <Label GridPane.columnIndex="1" GridPane.rowIndex="0" text="00"/>
+                    <Label GridPane.columnIndex="2" GridPane.rowIndex="0" text="01"/>
+                    <Label GridPane.columnIndex="3" GridPane.rowIndex="0" text="10"/>
+                    <Label GridPane.columnIndex="4" GridPane.rowIndex="0" text="11"/>
+
+                    <Text GridPane.columnIndex="1" GridPane.rowIndex="1" text="00" fx:id="ioOne"/>
+                    <Text GridPane.columnIndex="2" GridPane.rowIndex="1" text="00" fx:id="ioTwo"/>
+                    <Text GridPane.columnIndex="3" GridPane.rowIndex="1" text="00" fx:id="ioThree"/>
+                    <Text GridPane.columnIndex="4" GridPane.rowIndex="1" text="00" fx:id="ioFour"/>
+                </GridPane>
+                <Label GridPane.columnIndex="0" GridPane.rowIndex="1" text="Running: "/>
+                <Text  GridPane.columnIndex="0" GridPane.rowIndex="2" fx:id="runningInstruct"/>
+            </GridPane>
+
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <!--      Second row for Flag, IN, OUT, Register and other stuff          -->
+                    <GridPane fx:id="getOs" hgap="560">
+                        <GridPane  vgap="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
+<!--                            <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
+<!--                                <Label text="TStates: "/>-->
+<!--                                <Text text="a" fx:id="Tstate"/>-->
+
+<!--                                <Label text="MCycles: "/>-->
+<!--                                <Text text="b" fx:id="MCycles"/>-->
+
+<!--                                <Label text="Time Of Execution: "/>-->
+<!--                                <Text text="d" fx:id="timeOfExecution"/>-->
+<!--                            </HBox>-->
+                            <HBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label text="Flags: "/>
+                                <Text text="S" fx:id="SFlag"/>
+                                <Text text="Z" fx:id="ZFlag"/>
+                                <Text text="P" fx:id="PFlag"/>
+                                <Text text="AC" fx:id="ACFlag"/>
+                                <Text text="CY" fx:id="CYFlag"/>
+                            </HBox>
+
+                        </GridPane>
+
+                        <GridPane hgap="10" GridPane.columnIndex="1" GridPane.rowIndex="0" >
+                            <Label text="A" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label text="B" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                            <Label text="C" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                            <Label text="D" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                            <Label text="E" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+                            <Label text="H" GridPane.columnIndex="5" GridPane.rowIndex="0"/>
+                            <Label text="L" GridPane.columnIndex="6" GridPane.rowIndex="0"/>
+                            <Label text="M" GridPane.columnIndex="7" GridPane.rowIndex="0"/>
+                            <Label text="  SP" GridPane.fillWidth="1" GridPane.columnIndex="8" GridPane.rowIndex="0"/>
+                            <Label text="  PC" GridPane.columnIndex="10" GridPane.rowIndex="0"/>
+                            <Label text="Starting Address:" GridPane.columnIndex="11" GridPane.rowIndex="0"/>
+
+                            <Text text="00" GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="AReg"/>
+                            <Text text="00" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="BReg"/>
+                            <Text text="00" GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="CReg"/>
+                            <Text text="00" GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="DReg"/>
+                            <Text text="00" GridPane.columnIndex="4" GridPane.rowIndex="1" fx:id="EReg"/>
+                            <Text text="00" GridPane.columnIndex="5" GridPane.rowIndex="1" fx:id="HReg"/>
+                            <Text text="00" GridPane.columnIndex="6" GridPane.rowIndex="1" fx:id="LReg"/>
+                            <Text text="00" GridPane.columnIndex="7" GridPane.rowIndex="1" fx:id="MReg"/>
+                            <Text text="0000" GridPane.columnIndex="8" GridPane.fillWidth="1" GridPane.rowIndex="1" fx:id="SPReg"/>
+                            <Text text="0000" GridPane.columnIndex="10" GridPane.rowIndex="1" fx:id="PCReg"/>
+                            <TextField text="0000" GridPane.columnIndex="11" fx:id="pcInitialValue" GridPane.rowIndex="1"/>
+
+                        </GridPane>
+                    </GridPane>
+                <!--    End       -->
+            </HBox>
+        </GridPane>
+    </top>
+    <left>
+        <TextArea prefWidth="700" fx:id="allCodes"/>
+    </left>
+
+    <center>
+        <GridPane>
+            <TableView GridPane.columnIndex="0" prefHeight="700" prefWidth="300" editable="true" GridPane.rowIndex="0" fx:id="tableView">
+                <columns>
+                    <TableColumn editable="true" prefWidth="250" text="Address">
+                        <cellValueFactory><PropertyValueFactory property="addressValue" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn editable="true" prefWidth="250" text="Data">
+                        <cellValueFactory><PropertyValueFactory property="dataValue" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+<!--            <TableView GridPane.columnIndex="1" prefHeight="300" prefWidth="300" editable="true" GridPane.rowIndex="0" fx:id="tableViewData">-->
+<!--                <columns>-->
+<!--                    <TableColumn editable="true" prefWidth="250" text="Address">-->
+<!--                        <cellValueFactory><PropertyValueFactory property="addressValue" />-->
+<!--                        </cellValueFactory>-->
+<!--                    </TableColumn>-->
+<!--                    <TableColumn editable="true" prefWidth="250" text="Data">-->
+<!--                        <cellValueFactory><PropertyValueFactory property="dataValue" />-->
+<!--                        </cellValueFactory>-->
+<!--                    </TableColumn>-->
+<!--                </columns>-->
+<!--            </TableView>-->
+            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Text  text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Text  text="Data:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <TextField fx:id="memoryAddress" GridPane.columnIndex="0" prefWidth="300" GridPane.rowIndex="1"/>
+                <TextField fx:id="operandValue" GridPane.columnIndex="1" prefWidth="300" GridPane.rowIndex="1"/>
+            </GridPane>
+            <GridPane hgap="30" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="addMemory" text="Add Address"/>
+                <Button GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="deleteMemory" onAction="#deleteData" text="Delete Address"/>
+                <Button GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="editMemory" onAction="#updateData" text="Update Table"/>
+            </GridPane>
+        </GridPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane stylesheets="@../CSS/test.css" fx:id="asd" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.DialogBox"
+            prefHeight="400" prefWidth="500">
+    <content>
+        <VBox fx:id="aa" spacing="15" alignment="TOP_CENTER">
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Developed By:"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Punkholic"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="aka Niraj Ghimire"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Contact me for Feedback and Bug report:"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="FB: @niraj.ghimire.5454"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Github: @punkholic"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Twitter: @nirajghimirexyz"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Instagram: @grungeanthology"/>
+            <Text textAlignment="CENTER" textOrigin="CENTER" text="Tumblr: @nirajghimire"/>
+        </VBox>
+    </content>
+</DialogPane>

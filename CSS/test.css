@@ -1,0 +1,10 @@
+#asd {
+    -fx-background-image: url("../Images/a.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 500 400;
+    -fx-background-position: center center;
+}
+#aa{
+    -fx-font-weight: 900;
+}
+
