@@ -49,14 +49,14 @@
                     <Button text="Run" fx:id="runButton">
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20"  >
-                                <Image url="@run.png" />
+                                <Image url="@../Images/run.png" />
                             </ImageView>
                         </graphic>
                     </Button>
                     <Button fx:id="stopButton" text="Stop">
                         <graphic>
                             <ImageView fitHeight="20" fitWidth="20"  >
-                                <Image url="@stop.png" />
+                                <Image url="@../Images/stop.png" />
                             </ImageView>
                         </graphic>
                     </Button>
