@@ -9,3 +9,4 @@
 > ADD B  <br/><br/>
 > MOV A B  <br/><br/>
 > OUT 11  <br/><br/>
+> MOV A     B  <br/><br/>
